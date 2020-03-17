@@ -18,7 +18,7 @@ const serverPort = 3000;
 
 User.hasOne(Regtokens);
 
-sequelize.sync({force : true})
+sequelize.sync()
          .then(() => {
             application.listen(serverPort);
          })
