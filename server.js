@@ -4,7 +4,7 @@ const sequelize = require('./utils/db-connection');
 const registerRoute = require('./routes/register');
 const authRoute = require('./routes/auth');
 const User = require('./models/User');
-const Regtokens = require('./models/Regtokens');
+const Regtoken = require('./models/Regtoken');
 
 const application = express();
 
@@ -14,11 +14,11 @@ application.use(bodyParser.json());
 application.use(registerRoute);
 application.use(authRoute);
 
+User.hasOne(Regtoken);
+
 const serverPort = 3000;
 
-User.hasOne(Regtokens);
-
-sequelize.sync()
+sequelize.sync({force : true})
          .then(() => {
             application.listen(serverPort);
          })

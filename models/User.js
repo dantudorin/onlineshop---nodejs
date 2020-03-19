@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
 const dbConnection = require('../utils/db-connection');
+const Regtokens = require('./Regtoken');
 
-const User = dbConnection.define('users', {
+const User = dbConnection.define('regusers', {
 
     id : {
         type : Sequelize.INTEGER,
@@ -12,13 +13,13 @@ const User = dbConnection.define('users', {
 
     username : {
         type : Sequelize.STRING,
-        allowNull  : false,
+        allowNull  : true,
         unique : true
     },
 
     password : {
         type : Sequelize.STRING,
-        allowNull : false
+        allowNull : true
     },
 
     email : {
@@ -27,5 +28,7 @@ const User = dbConnection.define('users', {
         unique : true
     }
 });
-
 module.exports = User;
+
+
+

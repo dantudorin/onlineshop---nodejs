@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const dbConnection = require('../utils/db-connection');
 
-const Regtokens = dbConnection.define('regtokens', {
+const Regtoken = dbConnection.define('regtokens', {
 
     id : {
         type : Sequelize.INTEGER,
@@ -16,4 +16,4 @@ const Regtokens = dbConnection.define('regtokens', {
     },
 });
 
-module.exports = Regtokens;
+module.exports = Regtoken;
