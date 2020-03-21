@@ -7,8 +7,8 @@ exports.sendEmail = (reciever, token) => {
         secure : true,
 
         auth : {
-            user : 'hateonceaday@gmail.com',
-            pass : 'oparolasimpla'
+            user : 'youremail@here',
+            pass : 'yourpasswordhere'
             }
     });
     transporter.sendMail({
