@@ -20,8 +20,6 @@ application.use(bodyParser.json());
 application.use(registerRoute);
 application.use(authRoute);
 
-User.hasOne(Regtoken);
-
 const serverPort = 3000;
 
 sequelize.sync()

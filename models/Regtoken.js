@@ -12,8 +12,15 @@ const Regtoken = dbConnection.define('regtokens', {
 
     token : {
         type : Sequelize.STRING,
-        allowNull : false
+        allowNull : false,
+        unique : true
     },
+
+    email : {
+        type : Sequelize.STRING,
+        allowNull : false,
+        unique : true
+    }
 });
 
 module.exports = Regtoken;

@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const dbConnection = require('../utils/db-connection');
 const Regtokens = require('./Regtoken');
 
-const User = dbConnection.define('regusers', {
+const User = dbConnection.define('users', {
 
     id : {
         type : Sequelize.INTEGER,
@@ -13,7 +13,7 @@ const User = dbConnection.define('regusers', {
 
     username : {
         type : Sequelize.STRING,
-        allowNull  : true,
+        allowNull : true,
         unique : true
     },
 

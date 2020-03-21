@@ -22,17 +22,19 @@
                         <input type="text" name="email" value="<%= email %>">
                     </div>
                     <div class="text-style">
-                        <input type="text" name="username" placeholder="username">
+                        <input type="text" name="username" placeholder="username" required = "true">
                     </div>
                     <div class="text-style">
-                        <input type="password" name="password" placeholder="passowrd">
+                        <input type="password" name="password" placeholder="passowrd" required = "true">
                     </div>
                     <div class="text-style">
-                        <input type="password" name="confirmpassword" placeholder="confirmpassword">
+                        <input type="password" name="confirmpassword" placeholder="confirmpassword" required = "true">
                     </div>
-                    <div class="error-text">
-                        <p><% message %></p>
-                    </div>
+                    <% if(message) { %>
+                        <div class="alert alert-danger text-center">
+                            <strong>Warning!</strong> <%=message %>
+                        </div>
+                    <% } %>
                     <div class="create-user">
                         <input type="submit" value = "Create">
                     </div>
