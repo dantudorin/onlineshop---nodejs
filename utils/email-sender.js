@@ -1,14 +1,14 @@
 const nodemailer = require('nodemailer');
 
-exports.sendEmail = (reciever) => {
+exports.sendEmail = (reciever, token) => {
     let transporter = nodemailer.createTransport({
         host : "smtp.gmail.com",
         port : 465,
         secure : true,
 
         auth : {
-            user : 'youremailhere',
-            pass : 'yourpasswordhere'
+            user : 'hateonceaday@gmail.com',
+            pass : 'oparolasimpla'
             }
     });
     transporter.sendMail({
@@ -38,7 +38,7 @@ exports.sendEmail = (reciever) => {
                        <div class="border border-light p-3 mb-4">
                     
                             <div class="text-center">
-                              <button type="button" class="btn btn-lg btn-warning" href= "#">Register</button>
+                                <a href = "http://localhost:3000/register/${token}" class="btn btn-outline-primary">Confirm here</a>
                          </div>
                     
                       </div>

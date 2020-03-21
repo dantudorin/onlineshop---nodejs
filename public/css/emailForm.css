@@ -1,0 +1,41 @@
+.emailForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+input[type = text] {
+    border: none;
+    outline: none;
+    text-align: center;
+    border-bottom: 1.5px solid rgb(224, 166, 4);
+    font-size: 35px;
+    margin: 20px;
+}
+
+input[type = text]:focus {
+    border : 1px solid rgb(224, 166, 4);
+    outline: none;
+    box-shadow: 1px 0.5px 0.5px solid lightgrey;
+}
+
+input[type = submit] {
+
+    background-color: rgb(224, 166, 4);
+    color: whitesmoke;
+    outline: none;
+    border: none;
+    width: 150px;
+    height: 50px;
+    border-radius: 5%;
+    font-size: auto;
+}
+
+input[type = submit]:hover {
+    z-index: 1;
+    box-shadow: 1px 0.5px 0.5px darkgrey;
+    background-color : transparent;
+    color: rgb(163, 123, 11);
+    border: 1.5px solid rgb(224, 166, 4);
+}

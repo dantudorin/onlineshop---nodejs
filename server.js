@@ -8,6 +8,12 @@ const Regtoken = require('./models/Regtoken');
 
 const application = express();
 
+application.set('view engine', 'ejs');
+application.set('views', 'views');
+
+
+application.use(express.static(__dirname + '/public'));
+
 application.use(bodyParser.urlencoded({extended : true}));
 application.use(bodyParser.json());
 
@@ -18,7 +24,7 @@ User.hasOne(Regtoken);
 
 const serverPort = 3000;
 
-sequelize.sync({force : true})
+sequelize.sync()
          .then(() => {
             application.listen(serverPort);
          })

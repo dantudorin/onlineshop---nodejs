@@ -1,0 +1,54 @@
+.userAccount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.text-style input[type = text] {
+    margin : 5px;
+    width : auto;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-bottom: 1.5px solid rgb(224, 166, 4);
+    font-size: 20px;
+}
+
+.text-style input[type = text]:focus {
+    border: 1.5px solid rgb(224, 166, 4);
+}
+
+.text-style input[type = password] {
+    margin: 5px;
+    width: auto;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-bottom: 1.5px solid rgb(224, 166, 4);
+    font-size: 20px;
+}
+
+.text-style input[type = password]:focus{
+    border: 1.5px solid rgb(224, 166, 4);
+}
+
+.create-user input[type = submit] {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    background-color: rgb(224, 166, 4);
+    font-size: xx-large;
+    color: whitesmoke;
+    border-radius: 56%;
+}
+
+.create-user input[type = submit]:hover {
+    border-radius: 5%;
+    border: 1.5px solid rgb(224, 166, 4);
+    background-color: transparent;
+    color: rgb(224, 166, 4);
+}
+
