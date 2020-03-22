@@ -115,6 +115,38 @@ exports.createUser = async (req, res, next) => {
     
 };
 
-exports.login = (req, res, next) => {
-    
+exports.login = async (req, res, next) => {
+    try{
+        let user = await User.findOne({
+            where : Sequelize.or(
+                { email: req.body.username},
+                { username: req.body.username }
+        )
+        });
+
+        if(!user) return res.status(400).render('login', { message : 'User not found'});
+
+        let matched = await bcrypt.compare(req.body.password, user.password);
+
+        if(matched) {
+            req.session.userId = user.id;
+            return res.status(200).redirect('home');
+        } else {
+            return res.status(400).render('login', {message : 'Incorrect password'});
+        }
+
+    } catch(error) {
+        console.log(error);
+        return res.status(500).render('login', {message : 'Something went wrong with the server'});
+    }     
+        
+};
+
+exports.logout = async (req, res, next) => {
+   await req.session.destroy();
+   res.status(200).redirect('home');
+};
+
+exports.getUserId = async (req, res, next) => {
+     console.log(req.session.userId);
 };
