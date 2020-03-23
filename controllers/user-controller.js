@@ -15,7 +15,9 @@ exports.registerUser = async (req, res, next) => {
         });
     
         if(user) {
-           return res.status(400).render('register', {message : 'User already exists'});
+           req.flash('message', 'An account with this email has been found! Please try another one.');
+           req.flash('status', 400);
+           return res.redirect('register');
         }
         
         let regToken = await Regtoken.findOne({
@@ -29,10 +31,14 @@ exports.registerUser = async (req, res, next) => {
                 token : jwt.sign({ foo: 'registration' }, 'secret')
             });
     
-            let info = await emailSender.sendEmail(regToken.email, regToken.token);
+            let info = await emailSender.sendEmail(regToken.email, regToken.token, 'register-user');
 
-            if(info !== 'success')  return res.status(500).render('register', {message : 'Email service is down! Try again later.'});
-
+            if(info !== 'success') {
+                req.flash('message', 'Something went wrong with the server.');
+                req.status('status', 500);
+                return res.redirect('register');  
+            } 
+            console.log('A ajuns aici');
             return res.status(200).render('checkmailpage');
         }
     
@@ -40,15 +46,21 @@ exports.registerUser = async (req, res, next) => {
             email : req.body.email,
             token : jwt.sign({ foo: 'registration' }, 'secret')
         });
-        let info = await emailSender.sendEmail(regToken.email, regToken.token);
+        let info = await emailSender.sendEmail(regToken.email, regToken.token, 'register-user');
         
-        if(info !== 'success') return res.status(500).render('register', {message : 'Email service is down! Try again later.'});
-
+        if(info !== 'success') {
+            req.flash('message', 'Something went wrong with the server.');
+            req.flash('status', 500);
+            return res.status(500).redirect('register');
+        } 
+        console.log('A ajuns aici --> a creat tokenul pentru prima data');    
         return res.status(200).render('checkmailpage');
         
     } catch(error) {
         console.log(error);
-        return res.status(500).render('register', {message : 'Something went wrong with the server.'});
+        req.flash('message', 'Something went wrong with the server.');
+        req.flash('status', 500);
+        return res.redirect('register');
     }
 };
 
@@ -67,11 +79,14 @@ exports.validateRegistration = async (req, res, next) => {
         if(expDate.getTime() >= Date.now()) {
             return res.status(200).render('fulfillregistration', {email : regToken.email, message : null});
         }
-    
-        return res.status(400).render('register', {message : 'You registration token has expired! Please reenter your email address to generate new one'});
+        req.flash('message', 'Register token has expired. Please register again.');
+        req.flash('status', 400);
+        return res.redirect('register');
     } catch(error) {
         console.log(error);
-        return res.status(500).render('register' , {message : 'Something went wrong with the server.'});
+        req.flash('message', 'Something went wrong with the server');
+        req.flash('status', 500);
+        return res.redirect('register');
     }
     
 };
@@ -84,8 +99,12 @@ exports.createUser = async (req, res, next) => {
                 { username: req.body.username }
               )
         });
-        console.log('A facut asta');
-        if(user) return res.status(400).render('login', {message : 'User exists'});
+    
+        if(user) {
+            req.flash('message', 'User already exists.');
+            req.flash('status', 400);
+            return res.redirect('login');
+        }
     
         if(req.body.password !== req.body.confirmpassword) return res.status(400).render('fulfillregistration', {email : req.body.email, message : 'Passwords mismatched'}); 
         
@@ -106,11 +125,13 @@ exports.createUser = async (req, res, next) => {
     
         regToken.destroy();
     
-        return res.status(200).render('login', {message : null});
+        return res.redirect('login');
     
     }catch(error) {
         console.log(error);
-        return res.status(500).render('register', {message : 'Something went wrong with the server'});
+        req.flash('message', 'Something went wrong with the server');
+        req.flash('status', 500);
+        return res.status(500).redirect('register');
     }
     
 };
@@ -124,7 +145,11 @@ exports.login = async (req, res, next) => {
         )
         });
 
-        if(!user) return res.status(400).render('login', { message : 'User not found'});
+        if(!user) {
+            req.flash('message', 'Invalid username.');
+            req.flash('status', 400);
+            return res.redirect('login');
+        } 
 
         let matched = await bcrypt.compare(req.body.password, user.password);
 
@@ -132,12 +157,16 @@ exports.login = async (req, res, next) => {
             req.session.userId = user.id;
             return res.status(200).redirect('home');
         } else {
-            return res.status(400).render('login', {message : 'Incorrect password'});
+            req.flash('message', 'Invalid password.')
+            req.flash('status', 400);
+            return res.redirect('login');
         }
 
     } catch(error) {
         console.log(error);
-        return res.status(500).render('login', {message : 'Something went wrong with the server'});
+        req.flash('message', 'Something went wrong with the server.');
+        req.flash('status', 500);
+        return res.status(500).redirect('login');
     }     
         
 };

@@ -7,11 +7,12 @@ const User = require('./models/User');
 const Regtoken = require('./models/Regtoken');
 const session = require('express-session');
 const MongoDbStore = require('connect-mongodb-session')(session);
+const flash = require('connect-flash');
 
 const application = express();
 
 let store = new MongoDbStore({
-    uri : 'mongodb+srv://tudorindan:<password>@here>@jwt-authentication-mc2ro.mongodb.net/test',
+    uri : 'mongodb+srv://tudorindan:tudorindan@jwt-authentication-mc2ro.mongodb.net/test',
     collection : 'sessions'
 });
 
@@ -32,6 +33,8 @@ application.use(session({
     },
     store : store
 }));
+
+application.use(flash());
 
 application.use(express.static(__dirname + '/public'));
 
