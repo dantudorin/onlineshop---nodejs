@@ -12,7 +12,7 @@ const flash = require('connect-flash');
 const application = express();
 
 let store = new MongoDbStore({
-    uri : 'mongodb+srv://tudorindan:tudorindan@jwt-authentication-mc2ro.mongodb.net/test',
+    uri : 'mongodb+srv://tudorindan:<password>@jwt-authentication-mc2ro.mongodb.net/test',
     collection : 'sessions'
 });
 
