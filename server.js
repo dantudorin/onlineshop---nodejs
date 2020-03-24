@@ -8,11 +8,13 @@ const Regtoken = require('./models/Regtoken');
 const session = require('express-session');
 const MongoDbStore = require('connect-mongodb-session')(session);
 const flash = require('connect-flash');
+const dotenv = require('dotenv').config();
+
 
 const application = express();
 
 let store = new MongoDbStore({
-    uri : 'mongodb+srv://tudorindan:<password>@jwt-authentication-mc2ro.mongodb.net/test',
+    uri : 'mongodb+srv://tudorindan:' + process.env.DB_PASSWORD + '@register-login-hugfj.mongodb.net/test?retryWrites=true&w=majority',
     collection : 'sessions'
 });
 

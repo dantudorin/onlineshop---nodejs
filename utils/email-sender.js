@@ -9,8 +9,8 @@ exports.sendEmail = async (reciever, token, target) => {
             secure : true,
         
             auth : {
-                user : 'yourmail@here',
-                pass : 'accountpassword'
+                user : process.env.EMAIL_ADDRESS,
+                pass : process.env.EMAIL_PASSWORD
                 }
         });
 
@@ -27,7 +27,7 @@ exports.sendEmail = async (reciever, token, target) => {
                                                 <html>
                                                 <head>
                                                     <!-- Latest compiled and minified CSS -->
-                                                <link rel="stylesheet" 				href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+                                                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
                                                 
                                                 <!-- jQuery library -->
                                                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -84,7 +84,7 @@ exports.sendEmail = async (reciever, token, target) => {
                                                 <div class="border border-light p-3 mb-4">
                                                 
                                                         <div class="text-center">
-                                                            <a href = "http://localhost:3000/register/${token}" class="btn btn-outline-primary">Confirm here</a>
+                                                            <a href = "http://localhost:3000/forgot-password/${token}" class="btn btn-outline-primary">Confirm here</a>
                                                     </div>
                                                 
                                                 </div>

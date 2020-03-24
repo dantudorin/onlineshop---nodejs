@@ -28,10 +28,15 @@ exports.serveLogin = (req, res, next) => {
 exports.serveForgotPassword = (req, res, next) => {
     let message = req.flash('message');
     let status = req.flash('status');
-
+    let error = req.flash('error');
+    
+    if(error.length !== 0 && status.length !== 0) {
+        return res.status(status[0]).render('reset-password', {error : error[0], message : null});
+    }
+    
     if(message.length !== 0 && status.length !== 0) {
-        return res.status(status[0]).render('reset-password', {message : message});
+        return res.status(status[0]).render('reset-password', {error : null, message : message[0]});
     }
 
-    return res.status(200).render('reset-password', {message : null});
+    return res.status(200).render('reset-password', {error : null, message : null});
 }
