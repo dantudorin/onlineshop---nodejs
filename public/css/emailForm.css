@@ -1,28 +1,46 @@
-.emailForm {
+body {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-pure-color-watercolor-graffiti-gradient-background-board-design-board-design-image_66713.jpg');
+    
+}
+
+.register-card {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
 }
 
-input[type = text] {
+.emailForm {
+    border: 1.5px solid rgb(146, 112, 0);
+    border-radius: 7%;
+    padding: 10px;
+    height: 50vh;
+    background-color: beige;
+}
+
+.emailfield input[type = text] {
+    margin-top: 30px;
     border: none;
     outline: none;
     text-align: center;
     border-bottom: 1.5px solid rgb(224, 166, 4);
     font-size: 35px;
     margin: 20px;
+    background-color: transparent;
 }
 
-input[type = text]:focus {
+.emailfield input[type = text]:focus {
     border : 1px solid rgb(224, 166, 4);
     outline: none;
     box-shadow: 1px 0.5px 0.5px solid lightgrey;
 }
 
-input[type = submit] {
+.registerbutton input[type = submit] {
 
     background-color: rgb(224, 166, 4);
+    display: block;
+    margin: auto;
+    margin-top: 30px;
     color: whitesmoke;
     outline: none;
     border: none;
@@ -32,10 +50,18 @@ input[type = submit] {
     font-size: auto;
 }
 
-input[type = submit]:hover {
+.registerbutton input[type = submit]:hover {
     z-index: 1;
     box-shadow: 1px 0.5px 0.5px darkgrey;
     background-color : transparent;
     color: rgb(163, 123, 11);
     border: 1.5px solid rgb(224, 166, 4);
+}
+
+.register-message {
+    color: rgb(131, 95, 27); 
+}
+
+.alerta {
+    margin-top: 10px;
 }

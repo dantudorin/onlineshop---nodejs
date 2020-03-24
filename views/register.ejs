@@ -18,16 +18,24 @@
     <div class="container">
         <div class="row">
             <div class="col sm-6 justify-content-md-center">
-                <% if(message) { %>
-                    <div class="alert alert-danger text-center">
-                        <strong>Warning!</strong> <%=message %>
+                <div class="card register-card">
+                    <div class="emailForm">
+                        <p class="h3 text-center register-message">Register your email here</p>
+                        <hr>
+                        <form action="/register" method="POST">
+                            <div class="emailfield">
+                                <input type="text" name = "email" placeholder="email" required="true">
+                            </div>
+                            <div class="registerbutton">
+                                <input type="submit" name="Register" value="Register">
+                            </div>
+                        </form>
+                        <% if(error) { %>
+                            <div class="alert alert-danger text-center alerta">
+                                <strong>Warning!</strong> <%=error %>
+                            </div>
+                        <% } %>
                     </div>
-                <% } %>
-                <div class="emailForm">
-                    <form action="/register" method="POST">
-                        <input type="text" name = "email" placeholder="email" required="true">
-                        <input type="submit" name="Register" value="Register">
-                    </form>
                 </div>
             </div>
         </div>

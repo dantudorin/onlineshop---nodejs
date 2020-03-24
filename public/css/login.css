@@ -2,6 +2,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
+body {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-pure-color-watercolor-graffiti-gradient-background-board-design-board-design-image_66713.jpg');
+}
 
 .container{
 align-content: center;
@@ -16,7 +19,7 @@ height: 370px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
+background-color: rgba(0, 0, 0, 0.699) !important;
 }
 
 .social_icon span{

@@ -17,28 +17,31 @@
     <div class="container">
         <div class="row">
             <div class="col sm-6 justify-content-md-center userAccount">
-                <form action="/createUser" method="POST">    
-                    <div class="text-style">
-                        <input type="text" name="email" value="<%= email %>">
-                    </div>
-                    <div class="text-style">
-                        <input type="text" name="username" placeholder="username" required = "true">
-                    </div>
-                    <div class="text-style">
-                        <input type="password" name="password" placeholder="passowrd" required = "true">
-                    </div>
-                    <div class="text-style">
-                        <input type="password" name="confirmpassword" placeholder="confirmpassword" required = "true">
-                    </div>
+                <div class="card user-card">
+                    <h3 class="h3 text-center fulfill">Fill form and register</h1>
+                    <hr>
+                    <form action="/createUser" method="POST">    
+                        <div class="text-style">
+                            <input type="text" name="email" value="<%= email %>">
+                        </div>
+                        <div class="text-style">
+                            <input type="text" name="username" placeholder="username" required = "true">
+                        </div>
+                        <div class="text-style">
+                            <input type="password" name="password" placeholder="passowrd" required = "true">
+                        </div>
+                        <div class="text-style">
+                            <input type="password" name="confirmpassword" placeholder="confirmpassword" required = "true">
+                        </div>
+                        <div class="create-user">
+                            <input type="submit" value = "Create">
+                        </div> 
+                    </form>
                     <% if(message) { %>
-                        <div class="alert alert-danger text-center">
+                        <div class="alert alert-danger text-center error-message">
                             <strong>Warning!</strong> <%=message %>
                         </div>
                     <% } %>
-                    <div class="create-user">
-                        <input type="submit" value = "Create">
-                    </div>
-                </form>
                 </div>
             </div>
         </div>

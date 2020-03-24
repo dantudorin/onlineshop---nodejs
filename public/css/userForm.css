@@ -1,3 +1,8 @@
+body {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-pure-color-watercolor-graffiti-gradient-background-board-design-board-design-image_66713.jpg');
+    
+}
+
 .userAccount {
     display: flex;
     align-items: center;
@@ -5,14 +10,26 @@
     height: 100vh;
 }
 
+.user-card {
+    width: 50%;
+    height: 60vh;
+    background-color: beige;
+    border: 1.5px solid rgb(146, 112, 0);
+    border-radius: 7%;
+}
+
 .text-style input[type = text] {
-    margin : 5px;
-    width : auto;
+    
+    width : 50%;
     text-align: center;
     border: none;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
     outline: none;
     border-bottom: 1.5px solid rgb(224, 166, 4);
     font-size: 20px;
+    background: transparent;
 }
 
 .text-style input[type = text]:focus {
@@ -20,13 +37,16 @@
 }
 
 .text-style input[type = password] {
-    margin: 5px;
-    width: auto;
+    width: 50%;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
     text-align: center;
     border: none;
     outline: none;
     border-bottom: 1.5px solid rgb(224, 166, 4);
     font-size: 20px;
+    background: transparent;
 }
 
 .text-style input[type = password]:focus{
@@ -42,6 +62,7 @@
     background-color: rgb(224, 166, 4);
     font-size: xx-large;
     color: whitesmoke;
+    margin-top: 20px;
     border-radius: 56%;
 }
 
@@ -52,3 +73,10 @@
     color: rgb(224, 166, 4);
 }
 
+.fulfill {
+    color: rgb(131, 95, 27); 
+}
+
+.error-message {
+    margin-top: 10px;
+}

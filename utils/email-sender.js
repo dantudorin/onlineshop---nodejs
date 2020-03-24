@@ -9,8 +9,8 @@ exports.sendEmail = async (reciever, token, target) => {
             secure : true,
         
             auth : {
-                user : 'emailhere@gmail.com',
-                pass : 'password'
+                user : 'yourmail@here',
+                pass : 'accountpassword'
                 }
         });
 
