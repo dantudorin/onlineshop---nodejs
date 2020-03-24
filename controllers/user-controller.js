@@ -19,7 +19,7 @@ exports.registerUser = async (req, res, next) => {
            req.flash('error', 'An account with this email has been found! Please try another one.');
            req.flash('status', 400);
 
-           return res.redirect('register');
+           return res.redirect('http://localhost:3000/register');
         }
         
         let regToken = await Regtoken.findOne({
@@ -38,7 +38,7 @@ exports.registerUser = async (req, res, next) => {
             if(info !== 'success') {
                 req.flash('error', 'Something went wrong with the server.');
                 req.status('status', 500);
-                return res.redirect('register');  
+                return res.redirect('http://localhost:3000/register');  
             }
 
             return res.status(200).render('checkmailpage');
@@ -53,7 +53,7 @@ exports.registerUser = async (req, res, next) => {
         if(info !== 'success') {
             req.flash('error', 'Something went wrong with the server.');
             req.flash('status', 500);
-            return res.status(500).redirect('register');
+            return res.status(500).redirect('http://localhost:3000/register');
         }
 
         return res.status(200).render('checkmailpage');
@@ -64,7 +64,7 @@ exports.registerUser = async (req, res, next) => {
         req.flash('error', 'Something went wrong with the server.');
         req.flash('status', 500);
 
-        return res.redirect('register');
+        return res.redirect('http://localhost:3000/register');
     }
 };
 
@@ -94,7 +94,7 @@ exports.validateRegistration = async (req, res, next) => {
         req.flash('error', 'Register token has expired. Please register again.');
         req.flash('status', 400);
         
-        return res.redirect('register');
+        return res.redirect('http://localhost:3000/register');
     
     } catch(error) {
         console.log(error);
@@ -102,7 +102,7 @@ exports.validateRegistration = async (req, res, next) => {
         req.flash('error', 'Something went wrong with the server');
         req.flash('status', 500);
     
-        return res.redirect('register');
+        return res.redirect('http://localhost:3000/register');
     }
     
 };
@@ -120,7 +120,7 @@ exports.createUser = async (req, res, next) => {
             req.flash('error', 'User already exists.');
             req.flash('status', 400);
 
-            return res.redirect('login');
+            return res.redirect('http://localhost:3000/login');
         }
         
         let regToken = await Regtoken.findOne({
@@ -133,7 +133,7 @@ exports.createUser = async (req, res, next) => {
             req.flash('error', 'It seems like you don\'t have a register token. Please create one.');
             req.flash('status', 400);
 
-            return res.redirect('register');
+            return res.redirect('http://localhost:3000/register');
         } 
 
         if(req.body.password !== req.body.confirmpassword) return res.status(400).render('fulfillregistration', {email : req.body.email, message : 'Passwords mismatched'}); 
@@ -152,7 +152,7 @@ exports.createUser = async (req, res, next) => {
         req.flash('message', 'User was created.');
         req.flash('status', 200);
 
-        return res.redirect('login');
+        return res.redirect('http://localhost:3000/login');
     
     }catch(error) {
         console.log(error);
@@ -160,7 +160,7 @@ exports.createUser = async (req, res, next) => {
         req.flash('error', 'Something went wrong with the server');
         req.flash('status', 500);
     
-        return res.status(500).redirect('register');
+        return res.status(500).redirect('http://localhost:3000/register');
     }
     
 };
@@ -177,7 +177,7 @@ exports.login = async (req, res, next) => {
         if(!user) {
             req.flash('error', 'Invalid username.');
             req.flash('status', 400);
-            return res.redirect('login');
+            return res.redirect('http://localhost:3000/login');
         } 
 
         let matched = await bcrypt.compare(req.body.password, user.password);
@@ -188,14 +188,15 @@ exports.login = async (req, res, next) => {
         } else {
             req.flash('error', 'Invalid password.')
             req.flash('status', 400);
-            return res.redirect('login');
+            return res.redirect('http://localhost:3000/login');
         }
 
     } catch(error) {
         console.log(error);
         req.flash('error', 'Something went wrong with the server.');
         req.flash('status', 500);
-        return res.status(500).redirect('login');
+
+        return res.status(500).redirect('htpp://localhost:3000/login');
     }     
         
 };
@@ -221,7 +222,7 @@ exports.forgotPassword = async (req, res, next) => {
             req.flash('error', 'User does not exist.');
             req.flash('status', 400);
 
-            return res.redirect('register');
+            return res.redirect('http://localhost:3000/register');
         }
 
         let passwordToken = await Passwordtoken.findOne({
@@ -244,7 +245,7 @@ exports.forgotPassword = async (req, res, next) => {
             req.flash('error', 'Something went wrong with the server.');
             req.flash('status', 500);
             
-            return res.redirect('forgot-password');
+            return res.redirect('http://localhost:3000/forgot-password');
            }
 
             return res.status(200).render('checkmailpage');
@@ -262,7 +263,7 @@ exports.forgotPassword = async (req, res, next) => {
             req.flash('error', 'Something went wrong with the server.');
             req.flash('status', 500);
 
-            return res.redirect('forgot-password');
+            return res.redirect('http://localhost:3000/forgot-password');
         }
 
         return res.status(200).render('checkmailpage');
@@ -273,7 +274,7 @@ exports.forgotPassword = async (req, res, next) => {
         req.flash('error', 'Something went wrong with the server.');
         req.flash('status', 500);
 
-        return res.redirect('login');
+        return res.redirect('http://localhost:3000/login');
     }
         
 };
@@ -304,7 +305,7 @@ exports.validateForgotPassword = async (req, res, next) => {
         req.flash('error', 'Reset-password token has expired! Please resubmit request');
         req.flash('status', 400);
 
-        return res.redirect('forgot-password');
+        return res.redirect('http://localhost:3000/forgot-password');
 
     } catch (error) {
         console.log(error);
@@ -312,7 +313,7 @@ exports.validateForgotPassword = async (req, res, next) => {
         req.flash('error', 'Something went wrong with the server.');
         req.flash('status', 500);
 
-        return res.redirect('forgot-password');
+        return res.redirect('http://localhost:3000/forgot-password');
     }
     
 };
@@ -331,7 +332,7 @@ exports.updatePassword = async (req, res, next) => {
             req.flash('error', 'User not found! Please register.');
             req.flash('status', 400);
 
-            return res.redirect('login');
+            return res.redirect('http://localhost:3000/login');
         }
 
         let passwordToken = await Passwordtoken.findOne({
@@ -342,7 +343,7 @@ exports.updatePassword = async (req, res, next) => {
             req.flash('error', 'Could not found reset-password token.');
             req.flash('status', 400);
 
-            return res.redirect('forgot-password');
+            return res.redirect('http://localhost:3000/forgot-password');
         }
 
         if(req.body.password !== req.body.confirmpassword) return res.status(400).render('reset-password-form', {error : 'Password mismatched.'}); 
@@ -352,7 +353,7 @@ exports.updatePassword = async (req, res, next) => {
         req.flash('message', 'Password has been changed.');
         req.flash('status', 200);
 
-        return res.redirect('login');
+        return res.redirect('http://localhost:3000/login');
 
     } catch(error) {
         console.log(error);
@@ -360,7 +361,7 @@ exports.updatePassword = async (req, res, next) => {
         req.flash('error', 'Something went wrong with the server');
         req.flash('status', 'Something went wrong with the server');
 
-        return res.redirect('forgot-password');
+        return res.redirect('http://localhost:3000/forgot-password');
     }
 
 };
