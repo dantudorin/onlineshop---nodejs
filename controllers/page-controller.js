@@ -6,7 +6,7 @@ exports.serveRegisterEmail = (req, res, next) => {
         return res.status(status[0]).render('register', {error : error, path : '/register'});
     }
 
-   return res.status(200).render('register', {error : null, path : 'register'});
+   return res.status(200).render('register', {error : null, path : '/register'});
 };
 
 exports.serveLogin = (req, res, next) => {

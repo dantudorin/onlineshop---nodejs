@@ -10,6 +10,10 @@ const MongoDbStore = require('connect-mongodb-session')(session);
 const flash = require('connect-flash');
 const dotenv = require('dotenv').config();
 const shopRoute = require('./routes/shop');
+const Product = require('./models/Product');
+const Cart = require('./models/Cart');
+const CartItem = require('./models/Cart-Item');
+
 
 const application = express();
 
@@ -46,6 +50,9 @@ application.use(bodyParser.json());
 application.use(registerRoute);
 application.use(authRoute);
 application.use(shopRoute);
+
+User.hasOne(Cart);
+Cart.belongsToMany(Product, { through : CartItem});
 
 const serverPort = 3000;
 

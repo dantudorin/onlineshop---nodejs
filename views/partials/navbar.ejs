@@ -1,13 +1,20 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">ShopOnline</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="<%= path === '/home' ? 'active' : '' %>"><a href="/">Home</a></li>
-      <li class="<%= path === '/shopcart' ? 'active' : '' %>"><a href="/shopcart">Cart</a></li>
-      <li class="<%= path === '/login' ? 'active' : '' %>"><a href="/login">LogIn</a></li>
-      <li class="<%= path === 'register' ? 'active' : '' %>"><a href="/register">Register</a></li>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>    
+  </div>
+  <a class="navbar-brand" href="/">Shop Online</a>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-left">
+      <li class="<%= path === '/home' ? 'active' : '' %>"><a href="/">Products</a></li>
+      <li class="<%= path === '/cart' ? 'active' : '' %>"><a href="/cart">Cart</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="<%= path === '/login' ? 'active' : '' %>"><a href="/login">Login</a></li>
+      <li class="<%= path === '/register' ? 'active' : '' %>"><a href="/register">Register</a></li>
     </ul>
   </div>
 </nav>
