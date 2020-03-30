@@ -9,12 +9,12 @@ const session = require('express-session');
 const MongoDbStore = require('connect-mongodb-session')(session);
 const flash = require('connect-flash');
 const dotenv = require('dotenv').config();
-
+const shopRoute = require('./routes/shop');
 
 const application = express();
 
 let store = new MongoDbStore({
-    uri : 'mongodb+srv://tudorindan:' + process.env.DB_PASSWORD + '@register-login-hugfj.mongodb.net/test?retryWrites=true&w=majority',
+    uri : 'mongodb+srv://tudorindan:'  + process.env.DB_PASSWORD +  '@register-login-hugfj.mongodb.net/test?retryWrites=true&w=majority',
     collection : 'sessions'
 });
 
@@ -45,6 +45,7 @@ application.use(bodyParser.json());
 
 application.use(registerRoute);
 application.use(authRoute);
+application.use(shopRoute);
 
 const serverPort = 3000;
 

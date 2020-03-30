@@ -183,8 +183,9 @@ exports.login = async (req, res, next) => {
         let matched = await bcrypt.compare(req.body.password, user.password);
 
         if(matched) {
+            req.session.isLoggedIn = true;
             req.session.userId = user.id;
-            return res.status(200).redirect('home');
+            return res.status(200).render('home');
         } else {
             req.flash('error', 'Invalid password.')
             req.flash('status', 400);
