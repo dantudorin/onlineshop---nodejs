@@ -11,9 +11,8 @@ const Cart = sqlConnection.define('carts', {
     },
 
     sessionId : {
-        type : Sequelize.INTEGER,
+        type : Sequelize.STRING,
         unique : true,
-        allowNull : false
     }
 
 });

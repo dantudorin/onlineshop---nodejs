@@ -5,6 +5,8 @@ const Regtoken = require('../models/Regtoken');
 const emailSender = require('../utils/email-sender');
 const Sequelize = require('sequelize');
 const Passwordtoken = require('../models/Passwordtoken');
+const Product = require('../models/Product');
+const Cart = require('../models/Cart');
 
 exports.registerUser = async (req, res, next) => {
   
@@ -185,7 +187,18 @@ exports.login = async (req, res, next) => {
         if(matched) {
             req.session.isLoggedIn = true;
             req.session.userId = user.id;
-            return res.status(200).render('home');
+    
+            let products = await Product.findAll();
+            
+            let cart = await Cart.findOne({
+                where : {sessionId : req.session.sessionIdentifier}
+            });
+    
+            if(cart) {
+               await user.setCart(cart);          
+            }
+    
+            return res.status(200).render('home', {path : '/home', products : products});
         } else {
             req.flash('error', 'Invalid password.')
             req.flash('status', 400);

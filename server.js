@@ -43,6 +43,7 @@ application.use(session({
 application.use(flash());
 
 application.use(express.static(__dirname + '/public'));
+application.use('/uploads', express.static(__dirname + '/uploads'));
 
 application.use(bodyParser.urlencoded({extended : true}));
 application.use(bodyParser.json());

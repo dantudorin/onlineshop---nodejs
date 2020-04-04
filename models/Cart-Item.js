@@ -10,7 +10,8 @@ const CartItem = sqlConnection.define('chart-items', {
     },
 
     quantity : {
-        type : Sequelize.INTEGER
+        type : Sequelize.INTEGER,
+        defaultValue : 1
     }
 });
 

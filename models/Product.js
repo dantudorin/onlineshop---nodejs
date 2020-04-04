@@ -10,21 +10,10 @@ const Product = sqlConnection.define('products', {
         primaryKey : true
     },
 
-    title : {
-        type : Sequelize.STRING
-    },
-
-    description : {
-        type : Sequelize.STRING
-    },
-
-    price : {
-        type : Sequelize.FLOAT
-    },
-
-    picture : {
-        type : Sequelize.STRING
-    }
+    title : { type : Sequelize.STRING },
+    description : { type : Sequelize.STRING },
+    price : { type : Sequelize.FLOAT },
+    picture : { type : Sequelize.STRING }
 
 });
 

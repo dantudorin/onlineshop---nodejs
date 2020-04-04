@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/add-product.css">
+</head>
+<body>
+    <%- include('partials/navbar') -%>
+    <div class="container">
+        <div class="row">
+            <div class="product-form">
+                    <form action="/add-product" method="POST" enctype="multipart/form-data">
+                        <div class="inputFile">
+                            <input type="file" name = "prodImage" value="Add image">
+                        </div>
+                
+                        <div class="inputText">
+                            <input type="text" name = "title" placeholder="title">
+                        </div>
+                        <div class="inputText">
+                            <input type="text" name = "description" placeholder="description">
+                        </div>
+                        <div class="inputText">
+                            <input type="text" name = "price" placeholder="price">                 
+                        </div>
+                        <div class="addProductButton">
+                            <input type="submit" class="btn btn-primary btn-lg" name="addProduct" value="Add Product">
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

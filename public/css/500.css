@@ -1,0 +1,45 @@
+body {
+    background-image: url('https://s17736.pcdn.co/wp-content/uploads/2019/03/jason-leung-479251-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+.errorBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.errormessage {
+    background-color: rgba(233, 230, 230, 0.438);
+    height: 50%;
+    width: 75%;
+    border: 1px solid rgb(175, 106, 2);
+    border-radius: 1%;
+}
+
+.homeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.primaryMsg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    margin-top: 30px;
+}
+
+.secondaryMsg {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 40px;
+}
