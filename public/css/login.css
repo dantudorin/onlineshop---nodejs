@@ -1,91 +1,81 @@
-/* Made with love by Mutiullah Samim*/
-
-@import url('https://fonts.googleapis.com/css?family=Numans');
-
-body {
-    /* background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-pure-color-watercolor-graffiti-gradient-background-board-design-board-design-image_66713.jpg'); */
+.formFrame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
 }
 
-.container{
-align-content: center;
-display: flex;
-align-items: center;
-justify-content: center;
-height: 80vh;
+.formFrame form {
+    height: 100%;
+    width: 35%;
+    background-color: rgba(22, 18, 2, 0.541);
+    border-radius: 2%;
 }
 
-.card{
-height: 370px;
-margin-top: auto;
-margin-bottom: auto;
-width: 400px;
-background-color: rgba(0, 0, 0, 0.699) !important;
+.titleStyle {
+    border-bottom: 0.7px solid rgba(31, 25, 1, 0.541);
 }
 
-.social_icon span{
-font-size: 60px;
-margin-left: 10px;
-color: #FFC312;
+.titleStyle h3 {
+    text-align: center;
+    margin-top: 30px;
+    color: blanchedalmond;
 }
 
-.social_icon span:hover{
-color: white;
-cursor: pointer;
+.usernameInput input[type = "text"] {
+    color: blanchedalmond;
+    display: block;
+    margin: auto;
+    background: transparent;
+    margin-top: 30px;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 1.7rem;
+    border-bottom: 1.2px solid blanchedalmond;
 }
 
-.card-header h3{
-color: white;
+.usernameInput input[type = "text"]::placeholder {
+    color: blanchedalmond;
+    text-align: center;
+    font-size: 1.7rem;
 }
 
-.social_icon{
-position: absolute;
-right: 20px;
-top: -45px;
+.usernameInput input[type = "text"]:focus {
+    outline: none;
 }
 
-.input-group-prepend span{
-width: 50px;
-background-color: #FFC312;
-color: black;
-border:0 !important;
+.passwordInput input[type = "password"] {
+    color: blanchedalmond;
+    display: block;
+    margin: auto;
+    background: transparent;
+    margin-top: 30px;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 1.7rem;
+    border-bottom: 1.2px solid blanchedalmond;
 }
 
-input:focus{
-outline: 0 0 0 0  !important;
-box-shadow: 0 0 0 0 !important;
-
+.passwordInput input[type = "password"]::placeholder {
+    color: blanchedalmond;
+    text-align: center;
+    font-size: 1.7rem;
 }
 
-.remember{
-color: white;
+.passwordInput input[type = "password"]:focus {
+    outline: none;
 }
 
-.remember input
-{
-width: 20px;
-height: 20px;
-margin-left: 15px;
-margin-right: 5px;
+.submitButton input[type = "submit"] {
+    display: block;
+    margin: auto;
+    margin-top: 40px;
 }
 
-.login_btn{
-color: black;
-background-color: #FFC312;
-width: 100px;
-display: block;
-margin: auto;
-margin-top: 40px;
-}
-
-.login_btn:hover{
-color: black;
-background-color: white;
-}
-
-.links{
-color: white;
-}
-
-.links a{
-margin-left: 4px;
+.helper {
+    margin-top: 10px;
+    color: whitesmoke;
+    text-align: center;
 }

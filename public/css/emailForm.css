@@ -7,12 +7,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 60vh;
 }
 
 .emailForm {
     border: 1.5px solid rgb(146, 112, 0);
     border-radius: 7%;
+    background: transparent;
     padding: 10px;
     height: 50vh;
     background-color: hsla(210, 40%, 98%, 0.938);

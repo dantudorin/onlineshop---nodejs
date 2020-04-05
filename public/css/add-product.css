@@ -6,10 +6,12 @@
 }
 
 .product-form form {
-    border: 1px solid green;
+    border: 1.5px solid rgba(166, 206, 166, 0.438);
     height: 100%;
-    width: 50%;
-    background-color: azure;
+    width: 40%;
+    border-radius: 2%;
+    background-color: rgba(238, 237, 237, 0.562);
+    margin: 40px;
 }
 
 .inputText input[type = text] {
@@ -41,4 +43,38 @@
     display: block;
     margin: auto;
     margin-top: 30px;
+}
+
+.inputFormatter {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputFormatter + label {
+    font-size: 1.5em;
+    color: rgb(250, 248, 248);
+    background-color: rgba(73, 131, 81, 0.63);
+    width: 30%;
+    height: 30%;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    border: 1.2px solid rgb(226, 128, 0);
+    outline: none;
+    border-radius: 5%;
+    box-shadow: 1.3px 1.2px 1.2px darkgrey;
+
+}
+
+.inputFormatter:focus + label,
+.inputFormatter + label:hover {
+    background: transparent;
+    color: rgb(8, 143, 3);
+    box-shadow: 2.5px 1.2px 1.2px darkgrey;
+    cursor: pointer;
 }

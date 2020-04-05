@@ -7,11 +7,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 60vh;
 }
 
 .emailForm {
     border: 1.5px solid rgb(146, 112, 0);
+    background: transparent;
     border-radius: 7%;
     padding: 10px;
     height: 50vh;
@@ -23,21 +24,21 @@ body {
     border: none;
     outline: none;
     text-align: center;
-    border-bottom: 1.5px solid rgb(4, 110, 248);
+    border-bottom: 1.2px solid rgba(62, 131, 221, 0.836);
     font-size: 35px;
     margin: 20px;
     background-color: transparent;
 }
 
 .emailfield input[type = text]:focus {
-    border : 1px solid rgb(4, 110, 248);
+    border-bottom: 1.5px solid rgba(62, 131, 221, 0.836);
     outline: none;
     box-shadow: 1px 0.5px 0.5px solid lightgrey;
 }
 
 .registerbutton input[type = submit] {
 
-    background-color: rgb(4, 110, 248);
+    background-color: rgba(62, 131, 221, 0.836);
     display: block;
     margin: auto;
     margin-top: 30px;
@@ -53,9 +54,9 @@ body {
 .registerbutton input[type = submit]:hover {
     z-index: 1;
     box-shadow: 1px 0.5px 0.5px darkgrey;
-    background-color : white;
-    color: rgb(4, 110, 248);
-    border: 1.5px solid rgb(4, 110, 248);
+    background:transparent;
+    color: rgba(62, 131, 221, 0.836);
+    border: 1.5px solid rgba(62, 131, 221, 0.836);
 }
 
 .register-message {
